@@ -6,7 +6,7 @@
     {{ msg }}
     <view class="btn">
       <nut-button type="primary" @click="handleClick('text', msg2, true)"
-        >点我</nut-button
+        >点-我</nut-button
       >
     </view>
     <nut-toast :msg="msg" v-model:visible="show" :type="type" :cover="cover" />
