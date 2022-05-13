@@ -1,30 +1,65 @@
 <template>
   <view class="index">
     <view>
-      <img src="" alt="">
+      <img src="" alt="" />
     </view>
     {{ msg }}
     <view class="btn">
-      <nut-button type="primary" @click="handleClick('text', msg2, true)">点我</nut-button>
+      <nut-button type="primary" @click="handleClick('text', msg2, true)"
+        >点我</nut-button
+      >
     </view>
     <nut-toast :msg="msg" v-model:visible="show" :type="type" :cover="cover" />
+    <nut-button type="primary">主要按钮</nut-button>
+    <nut-button type="info">信息按钮</nut-button>
+    <nut-button type="default">默认按钮</nut-button>
+    <nut-button type="danger">危险按钮</nut-button>
+    <nut-button type="warning">警告按钮</nut-button>
+    <nut-button type="success">成功按钮</nut-button>
   </view>
 </template>
 
 <script>
-import { reactive, toRefs } from 'vue';
+import { reactive, toRefs } from "vue";
 export default {
-  name: 'Index',
-  components: {
-    
+  name: "Index",
+  components: {},
+  // 可以使用所有的 Vue 生命周期方法
+  mounted() {
+    console.log("mounted");
   },
-  setup(){
+
+  // onLoad
+  onLoad() {
+    console.log("onLoad");
+  },
+
+  // onReady
+  onReady() {
+    console.log("onReady");
+  },
+
+  // 对应 onShow
+  onShow() {
+    console.log("onShow");
+  },
+
+  // 对应 onHide
+  onHide() {
+    console.log("onHide");
+  },
+
+  // 对应 onPullDownRefresh
+  onPullDownRefresh() {
+    console.log("onPullDownRefresh");
+  },
+  setup() {
     const state = reactive({
-      msg: '欢迎使用 NutUI3.0 开发小程序',
-      msg2: '你成功了～',
-      type: 'text',
+      msg: "欢迎使用 NutUI3.0 开发小程序",
+      msg2: "你成功了～",
+      type: "text",
       show: false,
-      cover: false
+      cover: false,
     });
 
     const handleClick = (type, msg, cover = false) => {
@@ -36,10 +71,10 @@ export default {
 
     return {
       ...toRefs(state),
-      handleClick
-    }
-  }
-}
+      handleClick,
+    };
+  },
+};
 </script>
 
 <style lang="scss">
