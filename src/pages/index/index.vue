@@ -21,6 +21,7 @@
 
 <script>
 import { reactive, toRefs } from "vue";
+import key from "./../../utils/key";
 export default {
   name: "Index",
   components: {},
@@ -31,6 +32,8 @@ export default {
 
   // onLoad
   onLoad() {
+    console.log(process.env.NODE_ENV,'NODE_ENV');
+    console.log(key.ossKey,'key');
     console.log("onLoad");
   },
 
