@@ -14,7 +14,7 @@ switch (NODE_ENV) {
         break;
     default:
         key = {
-            ossKey: '345623746527346953', //自定义环境变量
+            ossKey: '345623746527346954', //自定义环境变量
         };
         break;
 }

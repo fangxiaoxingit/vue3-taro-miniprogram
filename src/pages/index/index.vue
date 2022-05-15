@@ -3,7 +3,7 @@
     <view>
       <img src="" alt="" />
     </view>
-    {{ msg }}
+    <h3>{{ msg }}</h3>
     <view class="btn">
       <nut-button type="primary" @click="handleClick('text', msg2, true)"
         >点-我</nut-button
@@ -21,7 +21,7 @@
 
 <script>
 import { reactive, toRefs } from "vue";
-import key from "./../../utils/key";
+import key from "@/utils/key";
 export default {
   name: "Index",
   components: {},
@@ -32,8 +32,9 @@ export default {
 
   // onLoad
   onLoad() {
-    console.log(process.env.NODE_ENV,'NODE_ENV');
-    console.log(key.ossKey,'key');
+    console.log(process.env.TARO_ENV, "小程序环境变量 TARO_ENV");
+    console.log(process.env.NODE_ENV, "NODE_ENV");
+    console.log(key.ossKey, "key");
     console.log("onLoad");
   },
 
@@ -86,5 +87,9 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+}
+h3{
+  margin: 20px;
+  color: $themeColor;
 }
 </style>

@@ -1,3 +1,5 @@
+const path = require('path')
+
 const config = {
   projectName: 'myApp',
   date: '2022-5-13',
@@ -11,6 +13,9 @@ const config = {
   sourceRoot: 'src',
   outputRoot: `dist/${process.env.TARO_ENV}`,
   plugins: ['@tarojs/plugin-html'],
+  alias: { //目录别名
+    '@/utils': path.resolve(__dirname, '..', 'src/utils'),
+  },
   defineConstants: {
   },
   copy: {
@@ -21,6 +26,7 @@ const config = {
   },
   framework: 'vue3',
   sass:{
+    resource: path.resolve(__dirname, '..', 'src/assets/style/variable.scss'),
     data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`
   },
   mini: {
