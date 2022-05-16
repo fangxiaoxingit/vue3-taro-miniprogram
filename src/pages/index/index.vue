@@ -9,7 +9,13 @@
         >点-我</nut-button
       >
     </view>
-    <span class="iconfont" >&#xe61e;</span>
+    <view
+      ><span class="iconfont">&#xe61e;</span>
+      <span class="iconfont">&#xe61a;</span>
+      <span class="iconfont">&#xe61d;</span>
+      <span class="iconfont">&#xe61f;</span>
+      <span class="iconfont">&#xe625;</span>
+    </view>
     <nut-toast :msg="msg" v-model:visible="show" :type="type" :cover="cover" />
     <nut-button type="primary">主要按钮</nut-button>
     <nut-button type="info">信息按钮</nut-button>
@@ -89,12 +95,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 }
-.h3{
+.h3 {
   margin: 20px;
   color: $themeColor;
   text-align: center;
 }
-.iconfont{
+.iconfont {
   font-size: 40px;
   color: $themeColor;
 }

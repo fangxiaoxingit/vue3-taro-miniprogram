@@ -9,7 +9,7 @@
 - [ ] 请求封装
 - [x] 页面生命周期  参考 pages/index 
 - [ ] 上传封装
-- [x] 图标引入 iconfont 引入，参考 assets/font
+- [x] 图标引入 iconfont 引入，参考 assets/font，app.js
 - [ ] 自定义组件
 - [x] 多环境变量配置，小程序环境变量
 - [ ] ...
