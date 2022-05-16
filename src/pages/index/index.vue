@@ -24,10 +24,14 @@
     <nut-button type="warning">警告按钮</nut-button>
     <nut-button type="success">成功按钮</nut-button>
   </view>
+  <view>
+    <nut-button @click="toList" type="success">列表</nut-button>
+  </view>
 </template>
 
 <script>
 import { reactive, toRefs } from "vue";
+import Taro from "@tarojs/taro";
 import key from "@/utils/key";
 export default {
   name: "Index",
@@ -80,9 +84,16 @@ export default {
       state.cover = cover;
     };
 
+    const toList = () => {
+      Taro.navigateTo({
+        url: "/pages/list/index",
+      });
+    };
+
     return {
       ...toRefs(state),
       handleClick,
+      toList,
     };
   },
 };
