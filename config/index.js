@@ -16,6 +16,7 @@ const config = {
   alias: { //目录别名
     '@/utils': path.resolve(__dirname, '..', 'src/utils'),
     '@/assets': path.resolve(__dirname, '..', 'src/assets'),
+    '@/coms': path.resolve(__dirname, '..', 'src/components'),
   },
   defineConstants: {
   },
