@@ -3,12 +3,13 @@
     <view>
       <img src="" alt="" />
     </view>
-    <h3>{{ msg }}</h3>
+    <view class="h3">{{ msg }}</view>
     <view class="btn">
       <nut-button type="primary" @click="handleClick('text', msg2, true)"
         >点-我</nut-button
       >
     </view>
+    <span class="iconfont" >&#xe61e;</span>
     <nut-toast :msg="msg" v-model:visible="show" :type="type" :cover="cover" />
     <nut-button type="primary">主要按钮</nut-button>
     <nut-button type="info">信息按钮</nut-button>
@@ -88,8 +89,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 }
-h3{
+.h3{
   margin: 20px;
+  color: $themeColor;
+  text-align: center;
+}
+.iconfont{
+  font-size: 40px;
   color: $themeColor;
 }
 </style>

@@ -15,6 +15,7 @@ const config = {
   plugins: ['@tarojs/plugin-html'],
   alias: { //目录别名
     '@/utils': path.resolve(__dirname, '..', 'src/utils'),
+    '@/assets': path.resolve(__dirname, '..', 'src/assets'),
   },
   defineConstants: {
   },

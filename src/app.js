@@ -1,7 +1,9 @@
 import { createApp } from 'vue'
 import { Button, Toast } from '@nutui/nutui-taro';
 
+
 import './app.scss'
+import '@/assets/font/iconfont.scss';
 
 const App = createApp({
   onShow (options) {},
