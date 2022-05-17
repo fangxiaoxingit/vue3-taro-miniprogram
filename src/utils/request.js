@@ -7,11 +7,14 @@ const interceptor = function (chain) {
     const { method, data, url } = requestParams
 
     console.log(`http ${method || 'GET'} --> ${url} data: `, data)
+    console.log('----请求前-----')
+    //请求前处理
     showLoading()
 
     return chain.proceed(requestParams)
         .then(res => {
-            console.log(`http <-- ${url} result:`, res)
+            console.log('result', res)
+            //请求拦截返回处理
             hideLoading()
             return res
         })
@@ -32,16 +35,17 @@ export function post(url, data) {
                 'content-type': 'application/json' // 默认值
             },
             success: function (res) {
+                console.log('请求成功res', res)
                 resolve(res)
             },
             fail: function (err) {
                 hideLoading()
-                console.log(err)
+                console.log('err',err)
                 reject(err)
             }
         })
     })
-}
+}''
 //get 请求
 export function get(url, data) {
     return new Promise((resolve, reject) => {

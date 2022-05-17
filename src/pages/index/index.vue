@@ -96,7 +96,9 @@ export default {
     const getList = () => {
       post("http://www.baidu.com", {
         name: "测试",
-      }).then((res) => {});
+      }).then((res) => {
+        console.log('postRes',res);
+      });
     };
 
     return {
