@@ -27,12 +27,16 @@
   <view class="list">
     <nut-button @click="toList" type="success">列表</nut-button>
   </view>
+  <view class="list">
+    <nut-button @click="getList" type="success">请求</nut-button>
+  </view>
 </template>
 
 <script>
 import { reactive, toRefs } from "vue";
 import Taro from "@tarojs/taro";
 import key from "@/utils/key";
+import { post } from "@/utils/request";
 export default {
   name: "Index",
   components: {},
@@ -89,11 +93,17 @@ export default {
         url: "/pages/list/index",
       });
     };
+    const getList = () => {
+      post("http://www.baidu.com", {
+        name: "测试",
+      }).then((res) => {});
+    };
 
     return {
       ...toRefs(state),
       handleClick,
       toList,
+      getList,
     };
   },
 };
@@ -115,7 +125,7 @@ export default {
   font-size: 40px;
   color: $themeColor;
 }
-.list{
+.list {
   text-align: center;
 }
 </style>

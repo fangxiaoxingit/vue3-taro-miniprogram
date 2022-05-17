@@ -6,3 +6,13 @@ export function shake(value = 'light') {
         type: value,
     })
 }
+
+export function showLoading(){
+    Taro.showLoading({
+        title: '加载中',
+        mask: true,
+    })
+}
+export function hideLoading(){
+    Taro.hideLoading()
+}
