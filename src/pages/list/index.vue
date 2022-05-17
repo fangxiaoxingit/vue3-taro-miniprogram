@@ -5,7 +5,6 @@
       :title="title"
       :content="content"
       v-model:visible="visible1"
-      @cancel="onCancel"
       @ok="onOk"
     />
   </view>
@@ -66,5 +65,8 @@ export default {
 
 <style lang="scss">
 .listPage {
+  height: 100%;
+  padding: 30px;
+  background-color: #ebecf0;
 }
 </style>

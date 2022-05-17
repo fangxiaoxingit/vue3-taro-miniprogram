@@ -24,7 +24,7 @@
     <nut-button type="warning">警告按钮</nut-button>
     <nut-button type="success">成功按钮</nut-button>
   </view>
-  <view>
+  <view class="list">
     <nut-button @click="toList" type="success">列表</nut-button>
   </view>
 </template>
@@ -114,5 +114,8 @@ export default {
 .iconfont {
   font-size: 40px;
   color: $themeColor;
+}
+.list{
+  text-align: center;
 }
 </style>
