@@ -6,6 +6,7 @@
 - [x] 编译路劲配置 参考配置文件 outputRoot: `dist/${process.env.TARO_ENV}`,
 - [x] 全局样式 参考配置文件
 - [x] 配置目录别名 参考配置文件
+- [x] 增加点击震动反馈 参考 utils/tools.js
 - [ ] 请求封装
 - [x] 页面生命周期  参考 pages/index 
 - [ ] 上传封装

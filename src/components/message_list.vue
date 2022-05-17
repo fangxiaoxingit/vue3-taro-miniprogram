@@ -14,6 +14,7 @@
 </template>
 <script>
 import { reactive, toRefs } from "vue";
+import {shake} from '@/utils/tools';
 export default {
   name: "MessageList",
   emits: ["detail"],
@@ -25,6 +26,7 @@ export default {
   },
   setup(props, content) {
     const onDetail = (item) => {
+      shake();
       content.emit("detail", item);
     };
     return {
