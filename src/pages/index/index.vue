@@ -1,8 +1,5 @@
 <template>
   <view class="index">
-    <view>
-      <img src="" alt="" />
-    </view>
     <view class="h3">{{ msg }}</view>
     <view class="btn">
       <nut-button type="primary" @click="handleClick('text', msg2, true)"
@@ -29,11 +26,14 @@
   </view>
   <view class="list">
     <nut-button @click="getList" type="success">请求</nut-button>
+    <nut-button @click="onReset" type="success">重置</nut-button>
   </view>
+  <view v-if="result">请求结果：{{ result }}</view>
+  <view v-for="(item, i) in cookies" :key="i" class="res-list"> {{ item }}</view>
 </template>
 
 <script>
-import { reactive, toRefs } from "vue";
+import { reactive, toRefs, ref } from "vue";
 import Taro from "@tarojs/taro";
 import key from "@/utils/key";
 import { post } from "@/utils/request";
@@ -93,12 +93,21 @@ export default {
         url: "/pages/list/index",
       });
     };
+    const result = ref("");
+    const cookies = ref([]);
     const getList = () => {
       post("http://www.baidu.com", {
         name: "测试",
       }).then((res) => {
-        console.log('postRes',res);
+        console.log("测试postRes", res);
+        result.value = res.errMsg;
+        cookies.value = res.cookies;
       });
+    };
+
+    const onReset = () => {
+      result.value = "";
+      cookies.value = [];
     };
 
     return {
@@ -106,6 +115,9 @@ export default {
       handleClick,
       toList,
       getList,
+      onReset,
+      result,
+      cookies,
     };
   },
 };
@@ -129,5 +141,9 @@ export default {
 }
 .list {
   text-align: center;
+}
+.res-list{
+  padding: 10px;
+  word-break: break-all;
 }
 </style>

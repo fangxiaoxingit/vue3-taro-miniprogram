@@ -7,7 +7,7 @@
 - [x] 全局样式 参考配置文件
 - [x] 配置目录别名 参考配置文件
 - [x] 增加点击震动反馈 参考 utils/tools.js
-- [ ] 请求封装
+- [x] 请求封装
 - [x] 页面生命周期  参考 pages/index 
 - [ ] 上传封装
 - [x] 图标引入 iconfont 引入，参考 assets/font，app.js

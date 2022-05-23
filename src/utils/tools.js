@@ -7,12 +7,18 @@ export function shake(value = 'light') {
     })
 }
 
-export function showLoading(){
+export function showLoading() {
     Taro.showLoading({
         title: '加载中',
         mask: true,
     })
 }
-export function hideLoading(){
+export function hideLoading() {
     Taro.hideLoading()
+}
+export function toast(value) {
+    Taro.showToast({
+        title: value,
+        duration: 2000
+    })
 }
