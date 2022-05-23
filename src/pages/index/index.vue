@@ -1,8 +1,5 @@
 <template>
   <view class="index">
-    <view>
-      <img src="" alt="" />
-    </view>
     <view class="h3">{{ msg }}</view>
     <view class="btn">
       <nut-button type="primary" @click="handleClick('text', msg2, true)"
@@ -32,11 +29,21 @@
     <nut-button @click="onReset" type="success">重置</nut-button>
   </view>
   <view class="list">
-    <nut-button @click="getList(2)" type="success">不显示 Loading 请求</nut-button>
+    <nut-button @click="getList(2)" type="success"
+      >不显示 Loading 请求</nut-button
+    >
     <nut-button @click="onReset" type="success">重置</nut-button>
   </view>
+  <view class="list">
+    <nut-button @click="onUpload" type="success">上传</nut-button>
+  </view>
+  <view class="img-box">
+    <image :src="path" mode="filled" />
+  </view>
   <view v-if="result">请求结果：{{ result }}</view>
-  <view v-for="(item, i) in cookies" :key="i" class="res-list"> {{ item }}</view>
+  <view v-for="(item, i) in cookies" :key="i" class="res-list">
+    {{ item }}</view
+  >
 </template>
 
 <script>
@@ -87,6 +94,10 @@ export default {
       show: false,
       cover: false,
     });
+    const img = reactive({
+      path: "",
+      size: "",
+    });
 
     const handleClick = (type, msg, cover = false) => {
       state.show = true;
@@ -103,9 +114,13 @@ export default {
     const result = ref("");
     const cookies = ref([]);
     const getList = (type) => {
-      post("http://www.baidu.com", {
-        name: "测试",
-      },type == 1).then((res) => {
+      post(
+        "http://www.baidu.com",
+        {
+          name: "测试",
+        },
+        type == 1
+      ).then((res) => {
         console.log("测试postRes", res);
         result.value = res.errMsg;
         cookies.value = res.cookies;
@@ -117,14 +132,32 @@ export default {
       cookies.value = [];
     };
 
+    const onUpload = () => {
+      Taro.chooseImage({
+        success(res) {
+          console.log("chooseImage", res);
+          Object.assign(img, res.tempFiles[0]);
+          const tempFilePaths = res.tempFiles;
+          // Taro.uploadFile({
+          //   url: "https://example.weixin.qq.com/upload", //仅为示例，非真实的接口地址
+          //   filePath: tempFilePaths[0],
+          //   name: "file",img
+          //   },
+          // });
+        },
+      });
+    };
+
     return {
       ...toRefs(state),
+      ...toRefs(img),
       handleClick,
       toList,
       getList,
       onReset,
       result,
       cookies,
+      onUpload,
     };
   },
 };
@@ -149,7 +182,7 @@ export default {
 .list {
   text-align: center;
 }
-.res-list{
+.res-list {
   padding: 10px;
   word-break: break-all;
 }
