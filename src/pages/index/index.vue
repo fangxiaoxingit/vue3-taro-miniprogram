@@ -1,5 +1,8 @@
 <template>
   <view class="index">
+    <view>
+      <img src="" alt="" />
+    </view>
     <view class="h3">{{ msg }}</view>
     <view class="btn">
       <nut-button type="primary" @click="handleClick('text', msg2, true)"
@@ -25,7 +28,11 @@
     <nut-button @click="toList" type="success">列表</nut-button>
   </view>
   <view class="list">
-    <nut-button @click="getList" type="success">请求</nut-button>
+    <nut-button @click="getList(1)" type="success">请求</nut-button>
+    <nut-button @click="onReset" type="success">重置</nut-button>
+  </view>
+  <view class="list">
+    <nut-button @click="getList(2)" type="success">不显示 Loading 请求</nut-button>
     <nut-button @click="onReset" type="success">重置</nut-button>
   </view>
   <view v-if="result">请求结果：{{ result }}</view>
@@ -95,10 +102,10 @@ export default {
     };
     const result = ref("");
     const cookies = ref([]);
-    const getList = () => {
+    const getList = (type) => {
       post("http://www.baidu.com", {
         name: "测试",
-      }).then((res) => {
+      },type == 1).then((res) => {
         console.log("测试postRes", res);
         result.value = res.errMsg;
         cookies.value = res.cookies;

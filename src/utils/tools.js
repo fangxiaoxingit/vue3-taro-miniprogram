@@ -6,16 +6,18 @@ export function shake(value = 'light') {
         type: value,
     })
 }
-
+//显示 loading
 export function showLoading() {
     Taro.showLoading({
         title: '加载中',
         mask: true,
     })
 }
+//隐藏 loading
 export function hideLoading() {
     Taro.hideLoading()
 }
+//显示 toast
 export function toast(value) {
     Taro.showToast({
         title: value,
